@@ -158,6 +158,33 @@ div[data-testid="stSidebar"] .stRadio label {
     justify-content: center !important;
 }
 
+/* 1. Make the radio button text bigger and bolder */
+div[data-testid="stRadio"] p {
+    font-size: 20px !important; /* Bumps up the size */
+    font-weight: bold !important;
+    letter-spacing: 1.5px !important;
+    color: #e6f1ff !important;
+}
+
+/* 2. Add breathing room between the options */
+div[data-testid="stRadio"] label {
+    margin-right: 100px !important; /* Pushes the next button far to the right */
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+/* Make Expander Text Bigger and Centered */
+div[data-testid="stExpander"] summary p {
+    font-size: 18px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+div[data-testid="stExpander"] summary {
+    display: flex !important;
+    justify-content: center !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -177,19 +204,21 @@ if st.session_state.current_user is None:
         st.markdown("<h1 class='neon-title'>MyBENTENG SECURE UPLINK</h1>", unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center; color: #888; font-family: monospace;'>DEPARTMENT OF GOVTECH (SSO)</h3>", unsafe_allow_html=True)
         
-        # 1. The Pro-Security Banner (Amber/Gold) - UPSCALED TEXT
+        # 1. The Pro-Security Banner (Amber/Gold) - CENTERED
         st.markdown("""
         <div style="
             background: rgba(255, 166, 0, 0.05);
-            border-left: 5px solid #ffa600;
+            border: 2px solid rgba(255, 166, 0, 0.5); /* Full border looks better centered */
             color: #ffa600;
             padding: 25px;
-            border-radius: 4px;
+            border-radius: 8px;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 16px; /* BUMPED UP FROM 13px */
+            font-size: 16px; 
             line-height: 1.8;
             margin-bottom: 35px;
             letter-spacing: 0.5px;
+            text-align: center; /* 👈 THIS CENTERS THE TEXT */
+            box-shadow: 0 0 15px rgba(255, 166, 0, 0.1); /* Adds a cool subtle glow */
         ">
             <strong style="letter-spacing: 2px; color: #fff; font-size: 20px;">[SECURITY PROTOCOL 10-ALPHA]</strong><br><br>
             RESTRICTED ACCESS POINT: SECURE CREDENTIAL VERIFICATION REQUIRED.<br>
@@ -337,36 +366,48 @@ if st.session_state.current_user is None:
                     time.sleep(1)
                     st.rerun()
 
-        # --- MODE 3: THUMBPRINT ---
+        # --- MODE 3: MOBILE BIOMETRIC (MyDigital ID) ---
         elif auth_mode == "🧬 THUMBPRINT":
             st.markdown("""
                 <div style="text-align: center; padding: 40px; border: 1px dashed #00f3ff; border-radius: 10px; background: rgba(0, 243, 255, 0.05);">
-                    <div style="font-size: 60px; margin-bottom: 15px; animation: pulse 2s infinite;">👆</div>
+                    <div style="font-size: 60px; margin-bottom: 15px; animation: pulse 2s infinite;">📲</div>
                     <p style="color: #00f3ff; font-family: monospace; font-size: 18px; letter-spacing: 2px;">
-                        PLACE THUMB ON SCANNER SURFACE
+                        MyDIGITAL ID: MOBILE HANDSHAKE
                     </p>
                 </div>
                 <style>
                     @keyframes pulse {
-                        0% { opacity: 0.6; transform: scale(0.95); }
-                        50% { opacity: 1; transform: scale(1.05); text-shadow: 0 0 15px #00f3ff; }
-                        100% { opacity: 0.6; transform: scale(0.95); }
+                        0% { opacity: 0.6; transform: translateY(0px); }
+                        50% { opacity: 1; transform: translateY(-5px); text-shadow: 0 0 15px #00f3ff; }
+                        100% { opacity: 0.6; transform: translateY(0px); }
                     }
                 </style>
             """, unsafe_allow_html=True)
             
             st.markdown("<br>", unsafe_allow_html=True)
-            if st.button("SIMULATE BIOMETRIC SCAN 🧬", use_container_width=True):
-                with st.spinner("READING DERMAL PATTERNS..."):
-                    time.sleep(2)
-                    st.success("✅ BIOMETRIC VERIFIED: ACCESS GRANTED")
-                    try:
-                        st.session_state.current_user = db.collection("users").document("JPS-9901").get().to_dict()
-                        st.session_state.current_user["badge_id"] = "JPS-9901"
-                    except:
-                        st.session_state.current_user = {"name": "Fatima", "title": "Lead Auditor", "department": "PMO", "clearance": "Level 5", "badge_id": "JPS-9901"}
-                    time.sleep(1)
-                    st.rerun()
+            if st.button("SEND PUSH NOTIFICATION TO DEVICE 📲", use_container_width=True):
+                # 1. Simulate sending the ping
+                with st.spinner("📡 Pinging Officer's registered mobile device..."):
+                    time.sleep(1.5)
+                
+                # 2. Simulate waiting for the user to touch their phone
+                st.warning("⏳ Waiting for fingerprint approval on 'Authorized Officer Device'...")
+                time.sleep(2.5) 
+                
+                # 3. Simulate receiving the token back
+                st.info("🔐 Encrypted token received. Verifying handshake...")
+                time.sleep(1.5)
+                
+                # 4. Final Success
+                st.success("✅ BIOMETRIC VERIFIED: ACCESS GRANTED")
+                
+                try:
+                    st.session_state.current_user = db.collection("users").document("JPS-9901").get().to_dict()
+                    st.session_state.current_user["badge_id"] = "JPS-9901"
+                except:
+                    st.session_state.current_user = {"name": "Fatima", "title": "Lead Auditor", "department": "PMO", "clearance": "Level 5", "badge_id": "JPS-9901"}
+                time.sleep(1)
+                st.rerun()
                     
     st.stop()
 
@@ -694,27 +735,30 @@ st.markdown("---")
 # 👁️‍🗨️ IMMUTABLE ACTIVITY LEDGER (L5 OVERSIGHT ONLY)
 # ==========================================
 if "Level 5" in user_profile.get('clearance', ''):
-    st.markdown("<br><h3 style='color: #00f3ff; font-family: monospace; letter-spacing: 1px;'>[+] RECENT NODE ACTIVITY (LEVELS 1-4)</h3>", unsafe_allow_html=True)
     
-    ledger_html = """
-    <style>
-    .ledger-table { width: 100%; border-collapse: collapse; font-family: 'Courier New', monospace; font-size: 14px; color: #c9d1d9; background-color: rgba(10, 25, 47, 0.5); border: 1px solid #1f6feb; margin-bottom: 30px; }
-    .ledger-table th { background-color: rgba(31, 111, 235, 0.2); color: #58a6ff; text-align: left; padding: 12px; border-bottom: 1px solid #1f6feb; }
-    .ledger-table td { padding: 10px 12px; border-bottom: 1px solid rgba(31, 111, 235, 0.2); }
-    .status-warn { color: #ffa600; font-weight: bold; }
-    .status-ok { color: #3fb950; }
-    .status-info { color: #00f3ff; }
-    </style>
-    <table class="ledger-table">
-        <tr><th>TIMESTAMP</th><th>PERSONNEL (ID)</th><th>ACTION PROTOCOL</th><th>NETWORK STATUS</th></tr>
-        <tr><td>15:10:42 UTC</td><td>SYSTEM AI</td><td>Hydrology Scan: Sector 4 (Permit #882)</td><td class="status-warn">⚠️ CONFLICT FLAGGED</td></tr>
-        <tr><td>14:45:11 UTC</td><td>SITI (JPS-9902)</td><td>Upload: Physical Site Topography Data</td><td class="status-ok">✔ VERIFIED</td></tr>
-        <tr><td>14:02:05 UTC</td><td>ARIF (JPS-9903)</td><td>Initialize Neural Satellite Link</td><td class="status-info">🛜 ACTIVE</td></tr>
-        <tr><td>09:15:00 UTC</td><td>SYSTEM AI</td><td>Daily Archival Sweep</td><td class="status-ok">✔ COMPLETED</td></tr>
-    </table>
-    """
-    st.markdown(ledger_html, unsafe_allow_html=True)
-    st.markdown("---")
+    # 👇 The new collapsible widget
+    with st.expander("👁️‍🗨️ VIEW RECENT NODE ACTIVITY", expanded=False):
+        
+        ledger_html = """
+        <style>
+        .ledger-table { width: 100%; border-collapse: collapse; font-family: 'Courier New', monospace; font-size: 14px; color: #c9d1d9; background-color: rgba(10, 25, 47, 0.5); border: 1px solid #1f6feb; margin-bottom: 10px; }
+        .ledger-table th { background-color: rgba(31, 111, 235, 0.2); color: #58a6ff; text-align: left; padding: 12px; border-bottom: 1px solid #1f6feb; }
+        .ledger-table td { padding: 10px 12px; border-bottom: 1px solid rgba(31, 111, 235, 0.2); }
+        .status-warn { color: #ffa600; font-weight: bold; }
+        .status-ok { color: #3fb950; }
+        .status-info { color: #00f3ff; }
+        </style>
+        <table class="ledger-table">
+            <tr><th>TIMESTAMP</th><th>PERSONNEL (ID)</th><th>ACTION PROTOCOL</th><th>NETWORK STATUS</th></tr>
+            <tr><td>15:10:42 UTC</td><td>SYSTEM AI</td><td>Hydrology Scan: Sector 4 (Permit #882)</td><td class="status-warn">⚠️ CONFLICT FLAGGED</td></tr>
+            <tr><td>14:45:11 UTC</td><td>SITI (JPS-9902)</td><td>Upload: Physical Site Topography Data</td><td class="status-ok">✔ VERIFIED</td></tr>
+            <tr><td>14:02:05 UTC</td><td>ARIF (JPS-9903)</td><td>Initialize Neural Satellite Link</td><td class="status-info">🛜 ACTIVE</td></tr>
+            <tr><td>09:15:00 UTC</td><td>SYSTEM AI</td><td>Daily Archival Sweep</td><td class="status-ok">✔ COMPLETED</td></tr>
+        </table>
+        """
+        st.markdown(ledger_html, unsafe_allow_html=True)
+        
+st.markdown("---")
 
 # ==========================================
 # 👇 INPUT SECTION WITH AUTO-CLEAR FORM 👇
