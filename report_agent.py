@@ -1,18 +1,35 @@
-# report_agent.py
+# ==============================================================================
+# MODULE: MyBENTENG Executive Reporting Engine (Agent-to-Agent Architecture)
+# PURPOSE: Transforms raw geospatial audit data into formal government memoranda.
+# COMPLIANCE: Supports Multilingual Output (English & Bahasa Melayu Baku).
+# ==============================================================================
+
 import os
 from dotenv import load_dotenv
 import google.generativeai as genai
 
+# --- SECTION 1: SYSTEM CONFIGURATION ---
+# This agent utilizes the Google AI Studio (Generative AI) SDK for high-speed
+# text synthesis and professional document formatting
+
 load_dotenv() 
 api_key = os.getenv("GOOGLE_API_KEY")
 
-# 🟢 THIS IS THE SAFE WAY:
+# Secure API configuration for the secondary reporting agent
+
 genai.configure(api_key=api_key)
+
+# --- SECTION 2: THE EXECUTIVE REPORTING ENGINE ---
+# This function is triggered by the Main Terminal (Fatima's Dashboard) to
+# Summarize an entire audit trail into a PMO-ready format
 
 def generate_executive_report(chat_history: str, language: str) -> str:
     """Uses Google AI Studio to generate reports in the user's selected language."""
     
-    # 👇 UPDATED PROMPT: Supports English & Bahasa Melayu dynamically 👇
+    # --- SECTION 3: PROMPT ENGINEERING & AGENT PERSONA ---
+    # We define a "Lead Reporting Agent" persona to ensure the output 
+    # Maintains a professional, objective, and bureaucratic tone
+
     prompt = f"""
     Act as the Lead Reporting Agent for the Prime Minister's Office using the MyBENTENG (Digital Floodwall) GovTech system. 
     Review the following raw chat history from a MyBENTENG geospatial audit.
@@ -40,11 +57,19 @@ def generate_executive_report(chat_history: str, language: str) -> str:
     {chat_history}
     """
     
-    # 🟢 Initializing the AI Studio free tier model
+    # --- SECTION 4: MODEL EXECUTION & ERROR HANDLING ---
+    # Initializing the model with 2.5-Flash for low-latency response generation
+
     model = genai.GenerativeModel("gemini-2.5-flash")
     
     try:
+        # Agent processes the data through the system instructions defined above
         response = model.generate_content(prompt)
         return response.text
     except Exception as e:
+        # Fail-safe reporting for satellite connectivity/API issues
         return f"🚨 MODEL ROUTING ERROR: {str(e)}\n\n(Tip: If this persists, try 'gemini-2.5-pro' instead.)"
+
+# ==============================================================================
+#                         END OF REPORTING MODULE
+# ==============================================================================
