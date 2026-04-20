@@ -25,23 +25,22 @@ graph TD
     classDef agent fill:#112240,stroke:#58a6ff,stroke-width:2px,color:#fff
     classDef tool fill:#0d1117,stroke:#3fb950,stroke-width:2px,color:#fff
     classDef db fill:#1a365d,stroke:#e3b341,stroke-width:2px,color:#fff
-    classDef cloud fill:#020c1b,stroke:#58a6ff,stroke-width:3px,stroke-dasharray: 5 5,color:#fff
 
-    subgraph ☁️ GOOGLE CLOUD RUN (Mandatory Deployment Infrastructure)
+    subgraph CloudRun ["☁️ GOOGLE CLOUD RUN (Mandatory Deployment Infrastructure)"]
         UI_In[💻 Streamlit UI Framework<br/>Terminal Input Layer]:::frontend
         UI_Out[📊 Streamlit Dashboard<br/>Terminal Output Layer]:::frontend
     end
 
-    subgraph Identity & Security Protocol
+    subgraph SecurityLayer ["Identity & Security Protocol"]
         IAM[🔐 Multimodal IAM<br/>Badge ID, Face Scan, Mobile]:::security
         RBAC{🛡️ RBAC Clearance<br/>MAMPU, JKR, PMO}:::security
     end
 
-    subgraph The Brain: Primary Execution
+    subgraph PrimaryAgent ["The Brain: Primary Execution"]
         Auditor[🤖 AGENT 1: Geospatial Auditor<br/>Gemini 2.5 Flash via Vertex AI]:::agent
     end
 
-    subgraph RAG Pipeline & Live Telemetry
+    subgraph DataPipeline ["RAG Pipeline & Live Telemetry"]
         Bucket[(📁 Cloud Storage Bucket<br/>PDF Policy Ingestion)]:::db
         RAG[(📚 Vertex AI Search<br/>Indexed DataStore)]:::tool
         Search(🌐 Google Search Tool<br/>Live JPS Flood Data):::tool
@@ -49,11 +48,11 @@ graph TD
         Bucket -. "Indexes Documents" .-> RAG
     end
 
-    subgraph Cloud Backend Services
+    subgraph DatabaseLayer ["Cloud Backend Services"]
         DB[(💾 Cloud Firestore<br/>Immutable Audit Ledger)]:::db
     end
 
-    subgraph The Synthesizer: Secondary Execution
+    subgraph SecondaryAgent ["The Synthesizer: Secondary Execution"]
         Report[📑 AGENT 2: Strategic Synthesizer<br/>Gemini 2.5 via AI Studio]:::agent
     end
 
