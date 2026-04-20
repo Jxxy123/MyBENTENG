@@ -27,9 +27,8 @@ graph TD
     classDef tool fill:#0d1117,stroke:#3fb950,stroke-width:2px,color:#fff
     classDef db fill:#1a365d,stroke:#e3b341,stroke-width:2px,color:#fff
 
-    subgraph CloudRun ["☁️ GOOGLE CLOUD RUN (Mandatory Deployment Infrastructure)"]
-        UI_In[💻 Streamlit UI Framework<br/>Terminal Input Layer]:::frontend
-        UI_Out[📊 Streamlit Dashboard<br/>Terminal Output Layer]:::frontend
+    subgraph EntryLayer ["User Input Layer"]
+        UI_In[💻 Streamlit Terminal Input<br/>☁️ Deployed on Google Cloud Run]:::frontend
     end
 
     subgraph SecurityLayer ["Identity & Security Protocol"]
@@ -55,6 +54,10 @@ graph TD
 
     subgraph SecondaryAgent ["The Synthesizer: Secondary Execution"]
         Report[📑 AGENT 2: Strategic Synthesizer<br/>Gemini 2.5 via AI Studio]:::agent
+    end
+
+    subgraph ExitLayer ["User Output Layer"]
+        UI_Out[📊 Streamlit Dashboard Output<br/>☁️ Deployed on Google Cloud Run]:::frontend
     end
 
     %% Workflow Connections
