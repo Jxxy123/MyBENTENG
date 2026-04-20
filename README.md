@@ -74,6 +74,13 @@ graph TD
     Report -- "Pushes PMO Memorandum" --> UI_Out
 ```
 
+### 🔄 Deep-Dive: System Workflow & Data Pipeline
+
+The MyBENTENG architecture operates on a highly secure, Agent-to-Agent (A2A) autonomous workflow designed for zero-latency government operations. The lifecycle begins at the User Input Layer, hosted entirely on Google Cloud Run for serverless scalability. When a government officer logs in, they are intercepted by a Multimodal IAM Protocol that accepts Badge IDs, Facial Scans, or Mobile Tokens. Upon authentication, an RBAC (Role-Based Access Control) Gatekeeper evaluates their departmental clearance, dynamically limiting audit capabilities to their specific jurisdiction to block unauthorized cross-agency queries. Once cleared, the query routes to Agent 1, the Geospatial Auditor, powered by Gemini 2.5 Flash via Vertex AI. Operating under strict dynamic system instructions, this primary agent analyzes the multimodal input—whether text, voice, or topographical files—and prepares for real-world verification.
+
+To eliminate AI hallucination, Agent 1 is structurally restricted from issuing a verdict until it completes a dual-grounding process. It first queries an internal Vertex AI Search DataStore to verify the input against national infrastructure policies, and then autonomously triggers the Google Search API to extract live internet telemetry, specifically targeting real-time flood warnings and weather data from JPS (Jabatan Pengairan dan Saliran). After synthesizing this data, Agent 1 issues a definitive safety verdict. Before this decision reaches the user, the entire transaction—including officer credentials, timestamps, and network status—is permanently written to a Google Cloud Firestore Database, establishing the immutable, tamper-proof audit ledger required for strict government transparency.
+
+Finally, the system initiates its autonomous bureaucracy reduction phase. The Firestore log automatically triggers Agent 2, a Strategic Synthesizer powered by the Google AI Studio SDK. This secondary agent autonomously ingests the raw chat history and database logs, synthesizing them into a highly formal, bilingual Executive Memorandum in both English and Bahasa Melayu Baku. This PMO-ready report is instantly pushed back to the Streamlit Output Layer, completing the cycle and entirely eliminating the manual paperwork traditionally associated with government audits.
 
 ---
 
