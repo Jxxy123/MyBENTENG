@@ -876,35 +876,36 @@ with col_right:
 if submit_button:
     if user_query or uploaded_file or audio_file:
 
-        # Satellite & Radar Animation
+        # 🟢 SATELLITE & RADAR ANIMATION
 
-        if uploaded_file:
-            scan_col1, scan_col2 = st.columns([1, 4])
-            with scan_col1:
-                st.markdown("<div class='radar-container'><div class='radar'></div></div>", unsafe_allow_html=True)
-            with scan_col2:
-                scan_status = st.empty()
-                scan_status.markdown("<p class='terminal-text'>> INITIATING SATELLITE UPLINK...</p>", unsafe_allow_html=True)
-                time.sleep(1)
-                scan_status.markdown("<p class='terminal-text'>> EXTRACTING DOCUMENT METADATA...</p>", unsafe_allow_html=True)
-                time.sleep(1)
-                scan_status.markdown("<p class='terminal-text'>> ROUTING TO MyBENTENG AI ENGINE...</p>", unsafe_allow_html=True)
-                time.sleep(1)
-                scan_status.markdown("<p class='terminal-text' style='color: #00f3ff;'>> TELEMETRY SYNC COMPLETE.</p>", unsafe_allow_html=True)
-                
-            # 🟢 DYNAMIC UPLINK DASHBOARD
-            st.markdown("### 🛰️ GIS Satellite Telemetry Link")
-            dash_col1, dash_col2, dash_col3 = st.columns(3)
-            with dash_col1:
-                st.metric(label="Geospatial Uplink", value="ACTIVE", delta="Signal Locked", delta_color="normal")
-            with dash_col2:
-                st.metric(label="Document Integrity", value="VERIFIED", delta="Checksum Match", delta_color="normal")
-            with dash_col3:
-                st.metric(label="AI Auditor Status", value="ANALYZING", delta="Awaiting Verdict", delta_color="off")
-            st.info("🛰️ SATELLITE LINK ESTABLISHED: File data successfully routed to MyBENTENG AI. Stand by for the official policy verdict...")
-            st.markdown("---")
+        scan_col1, scan_col2 = st.columns([1, 4])
+        with scan_col1:
+            st.markdown("<div class='radar-container'><div class='radar'></div></div>", unsafe_allow_html=True)
+        with scan_col2:
+            scan_status = st.empty()
+            scan_status.markdown("<p class='terminal-text'>> INITIATING SATELLITE UPLINK...</p>", unsafe_allow_html=True)
+            time.sleep(1)
+            scan_status.markdown("<p class='terminal-text'>> EXTRACTING METADATA & TELEMETRY...</p>", unsafe_allow_html=True)
+            time.sleep(1)
+            scan_status.markdown("<p class='terminal-text'>> ROUTING TO MyBENTENG AI ENGINE...</p>", unsafe_allow_html=True)
+            time.sleep(1)
+            scan_status.markdown("<p class='terminal-text' style='color: #00f3ff; font-weight: bold;'>> TELEMETRY SYNC COMPLETE.</p>", unsafe_allow_html=True)
+            
+        # 🟢 DYNAMIC UPLINK DASHBOARD
+        st.markdown("### 🛰️ GIS Satellite Telemetry Link")
+        dash_col1, dash_col2, dash_col3 = st.columns(3)
+        with dash_col1:
+            st.metric(label="Geospatial Uplink", value="ACTIVE", delta="Signal Locked", delta_color="normal")
+        with dash_col2:
+            st.metric(label="Data Integrity", value="VERIFIED", delta="Checksum Match", delta_color="normal")
+        with dash_col3:
+            st.metric(label="AI Auditor Status", value="ANALYZING", delta="Awaiting Verdict", delta_color="off")
+        
+        st.info("🛰️ SATELLITE LINK ESTABLISHED: Telemetry successfully routed to MyBENTENG AI. Stand by for the official policy verdict...")
+        st.markdown("---")
 
         with st.status(ui["audit_start"].format(badge_id=user_profile['badge_id'])):
+
             try:
                 prompt_contents = []
                 history_user_text = user_query if user_query else "Evidence Analysis."
