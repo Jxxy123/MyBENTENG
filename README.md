@@ -141,12 +141,14 @@ To run this application locally for testing and development:
 
 The application is fully deployed and publicly accessible via Google Cloud Run without requiring a local environment setup. Evaluators and Judges can find the specific **Badge IDs** (Test Credentials) required to bypass the multi-modal IAM login screen securely submitted via the **Official Submission Google Form**.
 
-* **Demo Day Note:** The "Badge ID" login is fully functional and actively queries the live Cloud Firestore database. The "Facial Scan" and "Thumbprint" options are high-fidelity UX simulations designed to demonstrate the intended multimodal workflow for future hardware integration.
+**Demo Day Note:** The "Badge ID" login is fully functional and actively queries the live Cloud Firestore database. The "Facial Scan" and "Thumbprint" options are high-fidelity UX simulations designed to demonstrate the intended multimodal workflow for future hardware integration.
 
 ---
 
 ## ⚖️ 7. Mandatory AI Disclosure & Ethics Compliance
 
-In accordance with Section 4 (Code of Conduct & Plagiarism Policy) of the Project 2030 Official Handbook, I hereby explicitly disclose that AI coding assistants (Google Gemini) were utilized during the development of this project. Gemini was used for brainstorming logic structures, formatting UI/CSS elements, and debugging Google Cloud API integrations.
+In accordance with Section 4 (Code of Conduct & Plagiarism Policy) of the Project 2030 Official Handbook, I hereby explicitly disclose the use of AI coding assistants (Google Gemini) during the development of this project. 
+
+**The core idea, conceptualization, and problem-solving strategy for MyBENTENG are 100% my original work.** Gemini was utilized strictly as a technical execution tool to assist with brainstorming logic structures, formatting UI/CSS elements, and debugging Google Cloud API integrations.
 
 All core architectural decisions, prompt engineering, database schemas, and multi-agent workflows were fundamentally designed, orchestrated, and validated by human logic to ensure ethical alignment, safety, and national relevance.
