@@ -126,15 +126,10 @@ To run this application locally for testing and development:
 
 **SECURITY NOTICE:** In strict compliance with the Project 2030 Hackathon Official FAQs, hardcoded passwords and database access keys are NOT included in this public repository.
 
-* The application is fully deployed and publicly accessible via Google Cloud Run without requiring a local environment setup.
-
-* Evaluators and Judges can find the specific Badge IDs (Test Credentials) required to bypass the multi-modal IAM login screen securely submitted via the Official Submission Google Form.
+The application is fully deployed and publicly accessible via Google Cloud Run without requiring a local environment setup. Evaluators and Judges can find the specific Badge IDs (Test Credentials) required to bypass the multi-modal IAM login screen securely submitted via the Official Submission Google Form.
 
 ## ⚖️ 7. Mandatory AI Disclosure & Ethics Compliance
 
-* In accordance with Section 4 (Code of Conduct & Plagiarism Policy) of the Project 2030 Official Handbook, I hereby explicitly disclose that AI coding assistants (Google Gemini) were utilized during the development of this project. Gemini was used for brainstorming logic structures, formatting UI/CSS elements, and debugging Google Cloud API integrations.
+In accordance with Section 4 (Code of Conduct & Plagiarism Policy) of the Project 2030 Official Handbook, I hereby explicitly disclose that AI coding assistants (Google Gemini) were utilized during the development of this project. Gemini was used for brainstorming logic structures, formatting UI/CSS elements, and debugging Google Cloud API integrations.
 
-* All core architectural decisions, prompt engineering, database schemas, and multi-agent workflows were fundamentally designed, orchestrated, and validated by human logic to ensure ethical alignment, safety, and national relevance.
-
-
-   
+All core architectural decisions, prompt engineering, database schemas, and multi-agent workflows were fundamentally designed, orchestrated, and validated by human logic to ensure ethical alignment, safety, and national relevance.
