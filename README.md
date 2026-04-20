@@ -25,9 +25,11 @@ graph TD
     classDef agent fill:#112240,stroke:#58a6ff,stroke-width:2px,color:#fff
     classDef tool fill:#0d1117,stroke:#3fb950,stroke-width:2px,color:#fff
     classDef db fill:#1a365d,stroke:#e3b341,stroke-width:2px,color:#fff
+    classDef cloud fill:#020c1b,stroke:#58a6ff,stroke-width:3px,stroke-dasharray: 5 5,color:#fff
 
-    subgraph User Interface Layer
-        UI[💻 Streamlit UI Framework<br/>Deployed on Cloud Run]:::frontend
+    subgraph ☁️ GOOGLE CLOUD RUN (Mandatory Deployment Infrastructure)
+        UI_In[💻 Streamlit UI Framework<br/>Terminal Input Layer]:::frontend
+        UI_Out[📊 Streamlit Dashboard<br/>Terminal Output Layer]:::frontend
     end
 
     subgraph Identity & Security Protocol
@@ -47,7 +49,7 @@ graph TD
         Bucket -. "Indexes Documents" .-> RAG
     end
 
-    subgraph Cloud Infrastructure
+    subgraph Cloud Backend Services
         DB[(💾 Cloud Firestore<br/>Immutable Audit Ledger)]:::db
     end
 
@@ -56,17 +58,17 @@ graph TD
     end
 
     %% Workflow Connections
-    UI -->|Initiates Handshake| IAM
+    UI_In -->|Initiates Handshake| IAM
     IAM -->|Verifies Identity| RBAC
     RBAC -- "Authorized Initiative" --> Auditor
-    RBAC -. "Access Denied" .-> UI
+    RBAC -. "Access Denied" .-> UI_Out
     
     Auditor <-->|Queries Policies| RAG
     Auditor <-->|Fetches Telemetry| Search
     Auditor -->|Logs Status & Verdict| DB
     
     DB -- "Triggers Report Generation" --> Report
-    Report -- "Pushes PMO Memorandum" --> UI
+    Report -- "Pushes PMO Memorandum" --> UI_Out
 ```
 
 
