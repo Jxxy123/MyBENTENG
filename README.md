@@ -121,12 +121,16 @@ To run this application locally for testing and development:
 4. **Launch the Application:**
     ```bash
     streamlit run main.py
+
+---
     
 ## 🔐 6. System Access & Test Credentials
 
 **SECURITY NOTICE:** In strict compliance with the Project 2030 Hackathon Official FAQs, hardcoded passwords and database access keys are NOT included in this public repository.
 
 The application is fully deployed and publicly accessible via Google Cloud Run without requiring a local environment setup. Evaluators and Judges can find the specific Badge IDs (Test Credentials) required to bypass the multi-modal IAM login screen securely submitted via the Official Submission Google Form.
+
+---
 
 ## ⚖️ 7. Mandatory AI Disclosure & Ethics Compliance
 
