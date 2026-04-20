@@ -10,12 +10,13 @@
 ## 📖 1. Executive Summary
 Aligning with the Malaysia Madani framework and MyDIGITAL blueprints, **MyBENTENG** (Digital Floodwall) is an Agentic AI-powered GovTech terminal designed to eliminate bureaucratic friction and address the recurring national crisis of annual floods. 
 
-By shifting from a traditional "technology consumer" to a "Sovereign Technology Builder," MyBENTENG utilizes Google's advanced AI ecosystem to automate real-time geospatial auditing, topography verification, and policy enforcement across multiple government agencies including **MKN (Security)**, **MAMPU (GovTech)**, **JKR (Infrastructure)**, and **JPS (Irrigation & Drainage)**.
+By shifting from a traditional "Technology consumer" to a "Sovereign Technology Builder," MyBENTENG utilizes Google's advanced AI ecosystem to automate real-time geospatial auditing, topography verification, and policy enforcement across multiple government agencies including **MKN (Security)**, **MAMPU (GovTech)**, **JKR (Infrastructure)**, and **JPS (Irrigation & Drainage)**.
 
 ---
 
 ## 🧠 2. System Architecture & Workflow Diagram
-MyBENTENG moves beyond simple "chat" into **Autonomous Execution** using a multi-agent architecture (A2A).
+
+MyBENTENG moves beyond simple "Chat" into **Autonomous Execution** using a Multi-Agent Architecture (A2A).
 
 ```mermaid
 graph TD
