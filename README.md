@@ -70,7 +70,7 @@ graph TD
 ```
 
 
-
+---
 
 ## ✨ 3. Core Features & Capabilities
 
