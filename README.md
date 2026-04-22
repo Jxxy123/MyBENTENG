@@ -21,6 +21,7 @@ Crucially, the architecture enforces a strict Human-in-the-Loop (HITL) protocol 
 
 MyBENTENG moves beyond simple "Chat" into **Autonomous Execution** using a Multi-Agent Architecture (A2A).
 
+```mermaid
 graph TD
     %% Custom GovTech Aesthetic Colors
     classDef frontend fill:#0a192f,stroke:#00f3ff,stroke-width:2px,color:#fff
@@ -79,6 +80,7 @@ graph TD
     
     UI_Out -->|Reviews Map & Memorandum| HITL
     HITL -- "Manual Authorization" --> PMO
+```
 
 ### 🔄 Deep-Dive: System Workflow & Data Pipeline
 
