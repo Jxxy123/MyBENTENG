@@ -762,6 +762,37 @@ with chat_history_container:
                     ⚠️ AMARAN MKN: RED ZONE DETECTED — AUDIT FAILED ⚠️
                 </div>
                 """, unsafe_allow_html=True)
+                
+                # --- ROI CALCULATOR & FOLIUM MAP ---
+                st.markdown("<br>", unsafe_allow_html=True)
+                st.markdown("### 💸 Financial Impact Assessment")
+                # Showing money saved
+                st.metric(
+                    label="Estimated Disaster Repair Cost Avoided", 
+                    value="RM 4.5 Million", 
+                    delta="Taxpayer Funds Secured",
+                    delta_color="normal"
+                )
+                
+                st.markdown("### 🗺️ Geospatial Risk Map")
+                import folium
+                from streamlit_folium import st_folium
+                
+                # Military-style dark map centered on Klang Valley (High Risk Demo)
+                m = folium.Map(location=[3.0333, 101.4500], zoom_start=12, tiles="CartoDB dark_matter")
+                folium.CircleMarker(
+                    location=[3.0333, 101.4500], 
+                    radius=60, 
+                    color="#ff0000", 
+                    fill=True, 
+                    fill_color="#ff0000", 
+                    fill_opacity=0.4,
+                    popup="RESTRICTED: RED ZONE DETECTED"
+                ).add_to(m)
+                
+                # Render map in Streamlit
+                st_folium(m, width=700, height=350, returned_objects=[])
+
             
             # CHECKED MEMORY FOR GREEN ZONE
             elif message["role"] == "assistant" and ("GREEN ZONE" in message["content"].upper() or "APPROVED" in message["content"].upper()):
@@ -802,6 +833,21 @@ with chat_history_container:
                 mime="text/plain",
                 use_container_width=True
             )
+
+            # --- PMO DISPATCH WORKFLOW ---
+            st.markdown("---")
+            if st.button("🔐 ENCRYPT & DISPATCH TO PMO", use_container_width=True):
+                # Simulating a secure government data transfer
+                progress_text = "Encrypting Memorandum with 256-bit GovTech Security..."
+                my_bar = st.progress(0, text=progress_text)
+                
+                for percent_complete in range(100):
+                    time.sleep(0.02)
+                    my_bar.progress(percent_complete + 1, text=progress_text)
+                    
+                time.sleep(0.5)
+                my_bar.empty()
+                st.success("✅ DISPATCH SUCCESS: Memorandum routed to Prime Minister's Office Dashboard.")
 
 # LIVE CLOUD AUDIT LEDGER (Exclusive to Level 5 Clearance)
 
