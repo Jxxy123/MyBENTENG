@@ -154,7 +154,14 @@ To run this application locally for testing and development:
 
 The application is fully deployed and publicly accessible via Google Cloud Run without requiring a local environment setup. Evaluators and Judges can find the specific **Badge IDs** (Test Credentials) required to bypass the multi-modal IAM login screen securely submitted via the **Official Submission Google Form**.
 
-**Demo Day Note:** The "Badge ID" login is fully functional and actively queries the live Cloud Firestore database. The "Facial Scan" and "Thumbprint" options are high-fidelity UX simulations designed to demonstrate the intended multimodal workflow for future hardware integration.
+### 🧪 The Persona Testing Matrix (RBAC Demonstration)
+To properly evaluate how MyBENTENG dynamically restricts access based on departmental clearance (Role-Based Access Control), the system can be tested using the following three personas:
+
+* **1. Badge ID (Live DB Connection):** Enter the Level 3GovTech Badge ID (provided securely in the Official Submission Google Form) and click initiate. This queries the live Cloud Firestore database and authenticates the session as **Arif**. Evaluators can observe how the system strictly restricts the available initiative dropdown options.
+* **2. Thumbprint (UX Simulation):** Click this option to simulate a mobile MyDIGITAL ID handshake. This automatically authenticates the profile as **Siti** (Public Works, Level 4 Clearance) and locks the session strictly into infrastructure planning protocols.
+* **3. Facial Scan (UX Simulation):** Click this option to simulate a 3D biometric scan. This authenticates the login as **Fatima** (Prime Minister's Office, Level 5 Clearance), unlocking the full Cross-Agency override terminal and the live Cloud Firestore audit ledger.
+
+**Demo Day Note:** The "Badge ID" login is fully functional and actively queries the live Cloud Firestore database. The "Facial Scan" and "Thumbprint" options are high-fidelity UX simulations designed to demonstrate the intended multimodal workflow for future hardware integration, while perfectly illustrating the strict RBAC firewall.
 
 ---
 

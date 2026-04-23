@@ -11,6 +11,7 @@ import os
 import datetime
 import time
 from dotenv import load_dotenv
+from fpdf import FPDF
 
 # --- SECTION 1: CLOUD INITIALIZATION & IAM CONFIGURATION ---
 # We use a Service Account Key to bridge the local app to Google Cloud Services.
@@ -435,10 +436,10 @@ if st.session_state.current_user is None:
                 st.success("✅ BIOMETRIC VERIFIED: ACCESS GRANTED")
                 
                 try:
-                    st.session_state.current_user = db.collection("users").document("JPS-9901").get().to_dict()
-                    st.session_state.current_user["badge_id"] = "JPS-9901"
+                    st.session_state.current_user = db.collection("users").document("JKR-5544").get().to_dict()
+                    st.session_state.current_user["badge_id"] = "JKR-5544"
                 except:
-                    st.session_state.current_user = {"name": "Fatima", "title": "Lead Auditor", "department": "PMO", "clearance": "Level 5", "badge_id": "JPS-9901"}
+                    st.session_state.current_user = {"name": "Siti", "title": "Civil Engineer", "department": "Public Works", "clearance": "Level 4", "badge_id": "JKR-5544"}
                 time.sleep(1)
                 st.rerun()
                     
@@ -472,7 +473,7 @@ ui_dict = {
         "clear_data": "🗑️ Clear Data / Start New Audit",
         "logout": "🚪 Terminate Session (Logout)",
         "footer": "🔒 **MKN-MAMPU Joint Taskforce:** RBAC Secured | **Node:** MyBENTENG-G2 Architecture",
-        "main_title": "🛡️ MyBENTENG: National Audit Terminal",
+        "main_title": "MyBENTENG: National Audit Terminal",
         "main_subtitle": "Automated Geospatial Intelligence for Flood-Resilient Infrastructure",
         "welcome": "Welcome back, {title} {name}",
         "search_header": "🔍 Satellite Uplink & Multimodal Scanner",
@@ -522,7 +523,7 @@ ui_dict = {
         "clear_data": "🗑️ Padam Data / Mula Audit Baru",
         "logout": "🚪 Tamatkan Sesi (Log Keluar)",
         "footer": "🔒 **Pasukan Petugas Bersama MKN-MAMPU:** Disahkan RBAC | **Nod:** Seni Bina MyBENTENG-G2",
-        "main_title": "🛡️ MyBENTENG: Terminal Audit Kebangsaan",
+        "main_title": "MyBENTENG: Terminal Audit Kebangsaan",
         "main_subtitle": "Kecerdasan Geospatial Automatik untuk Infrastruktur Berdaya Tahan Banjir",
         "welcome": "Selamat kembali, {title} {name}",
         "search_header": "🔍 Pautan Satelit & Pengimbas Pelbagai Modal",
@@ -826,11 +827,32 @@ with chat_history_container:
             st.markdown("### 🏛️ OFFICIAL AUDIT BRIEFING")
             st.info(st.session_state.executive_report)
             
+            # --- GOVTECH PDF GENERATOR ---
+            pdf = FPDF()
+            pdf.add_page()
+            
+            # 1. Official Document Header
+            pdf.set_font("Arial", style="B", size=14)
+            pdf.cell(0, 10, txt="MyBENTENG - SECURE NATIONAL AUDIT TERMINAL", ln=True, align="C")
+            pdf.set_font("Arial", style="I", size=10)
+            pdf.cell(0, 10, txt=f"Authorized by: {user_profile['title']} {user_profile['name']} ({user_profile['badge_id']})", ln=True, align="C")
+            pdf.ln(5) # Spacing
+            
+            # 2. Injecting the AI Report Body
+            pdf.set_font("Arial", size=11)
+            # Encode/decode to latin-1 to prevent standard font rendering errors
+            clean_text = st.session_state.executive_report.encode('latin-1', 'replace').decode('latin-1')
+            pdf.multi_cell(0, 6, txt=clean_text)
+            
+            # 3. Convert PDF to bytes for Streamlit Download
+            pdf_bytes = pdf.output(dest="S").encode("latin-1")
+            
+            # 4. The Download Button in PDF
             st.download_button(
-                label="📥 Download Official Report (.txt)",
-                data=st.session_state.executive_report,
-                file_name=f"PMO_MyBENTENG_Report_{user_profile['badge_id']}.txt",
-                mime="text/plain",
+                label="📥 Download Official Report (.pdf)",
+                data=pdf_bytes,
+                file_name=f"PMO_MyBENTENG_Report_{user_profile['badge_id']}.pdf",
+                mime="application/pdf",
                 use_container_width=True
             )
 
