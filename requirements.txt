@@ -1,0 +1,7 @@
+streamlit
+google-cloud-aiplatform
+google-cloud-firestore
+python-dotenv
+fpdf
+folium
+streamlit-folium
