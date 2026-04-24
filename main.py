@@ -460,18 +460,18 @@ ui_dict = {
         "lbl_clear": "**Clearance:**",
         "clearance_proto": "🔐 Clearance Protocols",
         "ts_active": "⚠️ TOP SECRET CLEARANCE ACTIVE",
-        "override_label": "Cross-Agency Oversight (Override)",
-        "restricted": "🛡️ Restricted to Department Protocols",
+        "override_label": "Cross-Agency Oversight",
+        "restricted": "⚠️ Restricted to Department Protocols",
         "auth_init": "Authorized Initiative",
-        "std_clearance": "🛡️ Standard Clearance",
+        "std_clearance": "⚠️ Standard Clearance",
         "opt_audit": "Full Sector Audit (GovTech, Infrastructure, & Disasters)",
         "opt_permit": "Permit Verification (Bureaucratic Friction)",
         "opt_infra": "Infrastructure Planning (Annual Flood Crisis)",
         "opt_general": "General GovTech Query",
         "audit_mgmt": "💾 Audit Record Management",
-        "dl_log": "📥 Download Audit Log (.txt)",
-        "clear_data": "🗑️ Clear Data / Start New Audit",
-        "logout": "🚪 Terminate Session (Logout)",
+        "dl_log": "Download Audit Log (.txt)",
+        "clear_data": "Clear Data / Start New Audit",
+        "logout": "Terminate Session (Logout)",
         "footer": "🔒 **MKN-MAMPU Joint Taskforce:** RBAC Secured | **Node:** MyBENTENG-G2 Architecture",
         "main_title": "MyBENTENG: National Audit Terminal",
         "main_subtitle": "Automated Geospatial Intelligence for Flood-Resilient Infrastructure",
@@ -483,15 +483,15 @@ ui_dict = {
         "query_ph": "Enter coordinates or policy question...",
         "context_ph": "Context for the scanned file...",
         "init_audit": "Execute Audit",
-        "audit_start": "🛰️ Establishing link for Officer {badge_id}...",
-        "transcribing": "🎙️ Decrypting voice channel...",
-        "heard": "🗣️ **Intercepted Audio:**",
-        "cross_ref": "🧠 Cross-referencing Datastore & Satellite telemetry...",
+        "audit_start": "Establishing link for Officer {badge_id}...",
+        "transcribing": "Decrypting voice channel...",
+        "heard": "**Intercepted Audio:**",
+        "cross_ref": "Cross-referencing Datastore & Satellite telemetry...",
         "audit_comp": "✅ Scan Complete! Official data retrieved.",
         "analysis": "### 🤖 MyBENTENG AI Analysis:",
-        "web_links": "🔗 Live Internet Telemetry Links",
+        "web_links": "Live Internet Telemetry Links",
         "web_desc": "The AI verified this against live web data. Sources below:",
-        "gen_report": "📊 GENERATE EXECUTIVE REPORT",
+        "gen_report": "GENERATE EXECUTIVE REPORT",
         "uplink_secure": "SYSTEM UPLINK SECURED",
         "node_activity": "VIEW RECENT NODE ACTIVITY",
         "input_mode": "Input Mode",
@@ -511,17 +511,17 @@ ui_dict = {
         "ts_active": "⚠️ PELEPASAN SULIT TERTINGGI AKTIF",
         "override_label": "Pemantauan Rentas Agensi (Ganti)",
         "override_btn": "🚨 Tulis Ganti Cache Pangkalan Data",
-        "restricted": "🛡️ Terhad kepada Protokol Jabatan",
+        "restricted": "⚠️Terhad kepada Protokol Jabatan",
         "auth_init": "Inisiatif Dibenarkan",
-        "std_clearance": "🛡️ Pelepasan Standard",
+        "std_clearance": "⚠️Pelepasan Standard",
         "opt_audit": "Audit Sektor Penuh (GovTech, Infrastruktur, & Bencana)",
         "opt_permit": "Pengesahan Permit (Geseran Birokrasi)",
         "opt_infra": "Perancangan Infrastruktur (Krisis Banjir Tahunan)",
         "opt_general": "Pertanyaan Umum GovTech",
         "audit_mgmt": "💾 Pengurusan Rekod Audit",
-        "dl_log": "📥 Muat Turun Log Audit (.txt)",
-        "clear_data": "🗑️ Padam Data / Mula Audit Baru",
-        "logout": "🚪 Tamatkan Sesi (Log Keluar)",
+        "dl_log": "Muat Turun Log Audit (.txt)",
+        "clear_data": "Padam Data / Mula Audit Baru",
+        "logout": "Tamatkan Sesi (Log Keluar)",
         "footer": "🔒 **Pasukan Petugas Bersama MKN-MAMPU:** Disahkan RBAC | **Nod:** Seni Bina MyBENTENG-G2",
         "main_title": "MyBENTENG: Terminal Audit Kebangsaan",
         "main_subtitle": "Kecerdasan Geospatial Automatik untuk Infrastruktur Berdaya Tahan Banjir",
@@ -533,15 +533,15 @@ ui_dict = {
         "query_ph": "Masukkan koordinat atau soalan dasar...",
         "context_ph": "Konteks untuk fail yang diimbas...",
         "init_audit": "Laksanakan Audit",
-        "audit_start": "🛰️ Mewujudkan pautan untuk Pegawai {badge_id}...",
-        "transcribing": "🎙️ Menyahsulit saluran suara...",
-        "heard": "🗣️ **Audio Pintasan:**",
-        "cross_ref": "🧠 Merujuk Silang Pangkalan Data & Telemetri Satelit...",
+        "audit_start": "Mewujudkan pautan untuk Pegawai {badge_id}...",
+        "transcribing": "Menyahsulit saluran suara...",
+        "heard": "**Audio Pintasan:**",
+        "cross_ref": "Merujuk Silang Pangkalan Data & Telemetri Satelit...",
         "audit_comp": "✅ Imbasan Selesai! Data rasmi diambil.",
         "analysis": "### 🤖 Analisis AI MyBENTENG:",
-        "web_links": "🔗 Pautan Telemetri Internet Langsung",
+        "web_links": "Pautan Telemetri Internet Langsung",
         "web_desc": "AI mengesahkan ini dengan data web langsung. Sumber di bawah:",
-        "gen_report": "📊 JANA LAPORAN EKSEKUTIF",
+        "gen_report": "JANA LAPORAN EKSEKUTIF",
         "uplink_secure": "PAUTAN SISTEM SELAMAT",
         "node_activity": "LIHAT AKTIVITI NOD TERKINI",
         "input_mode": "Mod Input",
@@ -689,7 +689,12 @@ model = GenerativeModel(
         "You have full conversational memory. If the user asks endless follow-up questions (e.g., 'What do you mean?', 'Explain more', 'Make it simpler', 'Translate it'), you MUST patiently and enthusiastically answer them based on your previous responses.",
 
         f"CRITICAL LANGUAGE DIRECTIVE: You must respond entirely in {app_language}. If the user asks in English but the setting is Bahasa Melayu, reply in Bahasa Melayu. Automatically translate all Datastore findings into professional {app_language}.",
-        "CRITICAL SEARCH DIRECTIVE: When using the Google Search tool, prioritize highly authoritative sources. You MUST provide the actual, clickable HTTPS web address at the very end of your response."
+        "CRITICAL SEARCH DIRECTIVE: When using the Google Search tool, prioritize highly authoritative sources. You MUST provide the actual, clickable HTTPS web address at the very end of your response.",
+        # --- NEW DYNAMIC UI INSTRUCTIONS ---
+        "=== V2 DYNAMIC UI DATA HANDSHAKE ===",
+        "At the absolute end of your response, after all text and citations, you MUST append a hidden data string using exactly this format: |METADATA|latitude|longitude|Estimated RM Value|",
+        "Example: |METADATA|3.1390|101.6869|RM 4.5 Million|",
+        "If you approve a Green Zone, the RM value should be 'RM 0 (Safe)'. If you reject a Red Zone, estimate the repair cost avoided based on the severity of the location."
     ]
 )
 
@@ -764,13 +769,16 @@ with chat_history_container:
                 </div>
                 """, unsafe_allow_html=True)
                 
-                # --- ROI CALCULATOR & FOLIUM MAP ---
+                # --- DYNAMIC ROI CALCULATOR & FOLIUM MAP ---
                 st.markdown("<br>", unsafe_allow_html=True)
                 st.markdown("### 💸 Financial Impact Assessment")
-                # Showing money saved
+                
+                # Pull the dynamic ROI from memory (or fallback to RM 4.5M)
+                display_roi = message.get("roi", "RM 4.5 Million")
+                
                 st.metric(
                     label="Estimated Disaster Repair Cost Avoided", 
-                    value="RM 4.5 Million", 
+                    value=display_roi, 
                     delta="Taxpayer Funds Secured",
                     delta_color="normal"
                 )
@@ -779,10 +787,13 @@ with chat_history_container:
                 import folium
                 from streamlit_folium import st_folium
                 
-                # Military-style dark map centered on Klang Valley (High Risk Demo)
-                m = folium.Map(location=[3.0333, 101.4500], zoom_start=12, tiles="CartoDB dark_matter")
+                # Pull dynamic coordinates from memory (fallback to Klang Valley)
+                map_lat = message.get("lat", 3.0333)
+                map_lon = message.get("lon", 101.4500)
+                
+                m = folium.Map(location=[map_lat, map_lon], zoom_start=12, tiles="CartoDB dark_matter")
                 folium.CircleMarker(
-                    location=[3.0333, 101.4500], 
+                    location=[map_lat, map_lon], 
                     radius=60, 
                     color="#ff0000", 
                     fill=True, 
@@ -791,7 +802,6 @@ with chat_history_container:
                     popup="RESTRICTED: RED ZONE DETECTED"
                 ).add_to(m)
                 
-                # Render map in Streamlit
                 st_folium(m, width=700, height=350, returned_objects=[])
 
             
@@ -849,7 +859,7 @@ with chat_history_container:
             
             # 4. The Download Button in PDF
             st.download_button(
-                label="📥 Download Official Report (.pdf)",
+                label="Download Official Report (.pdf)",
                 data=pdf_bytes,
                 file_name=f"PMO_MyBENTENG_Report_{user_profile['badge_id']}.pdf",
                 mime="application/pdf",
@@ -887,16 +897,27 @@ if "Level 5" in user_profile.get('clearance', ''):
             else:
                 h_time, h_user, h_action, h_status = "MASA", "PERSONEL", "PROTOKOL TINDAKAN", "STATUS RANGKAIAN"
 
-            # Build rows
+                # Build rows dynamically based on Firestore data
             dynamic_rows = ""
             for doc in docs:
                 log = doc.to_dict()
                 ts = log.get('timestamp')
-                time_str = ts.strftime('%H:%M:%S UTC') if ts else "N/A"
+                time_str = ts.strftime('%H:%M:%S MYT') if ts else "N/A"
                 user_name = log.get('user', 'SYSTEM').upper()
                 action_txt = log.get('action', 'Activity logged')
                 
-                dynamic_rows += f"<tr><td>{time_str}</td><td>{user_name}</td><td>{action_txt}</td><td style='color: #3fb950;'>✔ VERIFIED</td></tr>"
+                # Pull the 'status' field from Firestore
+                status_val = log.get('status', 'VERIFIED').upper()
+                
+                # Color and icon based on status
+                if "BLOCK" in status_val or "FAIL" in status_val:
+                    status_color = "#ff4b4b" # Red
+                    status_icon = "✖"
+                else:
+                    status_color = "#3fb950" # Green
+                    status_icon = "✔"
+                
+                dynamic_rows += f"<tr><td>{time_str}</td><td>{user_name}</td><td>{action_txt}</td><td style='color: {status_color};'>{status_icon} {status_val}</td></tr>"
 
             # Final Table
             full_table_html = f"""
@@ -1008,25 +1029,49 @@ if submit_button:
                     memory_string += "\nBased on the audit context above, please answer the current query.\n"
                     prompt_contents.insert(0, memory_string)
                 
+                # =================================================================
+                # 🚀 LIVE AI GENERATION (Fully Autonomous)
+                # =================================================================
                 response = model.generate_content(prompt_contents)
+                raw_text = "".join([part.text for part in response.candidates[0].content.parts if hasattr(part, "text")])
                 
-                safe_text = "".join([part.text for part in response.candidates[0].content.parts if hasattr(part, "text")])
+                # --- NEW REAL-TIME INTERCEPTOR ---
+                dynamic_lat, dynamic_lon, dynamic_roi = 3.1390, 101.4500, "RM 0" # Default fallback
+                clean_text = raw_text
+                
+                if "|METADATA|" in raw_text:
+                    parts = raw_text.split("|METADATA|")
+                    clean_text = parts[0].strip() # The text the user actually sees
+                    
+                    try:
+                        meta_string = parts[1].strip().split("|")
+                        dynamic_lat = float(meta_string[0])
+                        dynamic_lon = float(meta_string[1])
+                        dynamic_roi = str(meta_string[2])
+                    except:
+                        pass # If AI messes up the format, it just uses the defaults
                 
                 st.success(ui["audit_comp"])
                 st.markdown(ui["analysis"])
-
-                st.write(safe_text)
+                st.write(clean_text)
                 
                 # Live Grounding Source Display
-
-                if hasattr(response.candidates[0], "grounding_metadata") and response.candidates[0].grounding_metadata.search_entry_point:
+                if 'response' in locals() and hasattr(response.candidates[0], "grounding_metadata") and response.candidates[0].grounding_metadata.search_entry_point:
                     st.markdown("---")
                     with st.expander(ui["web_links"], expanded=True):
                         st.write(ui["web_desc"])
                         st.html(response.candidates[0].grounding_metadata.search_entry_point.rendered_content)
                 
                 st.session_state.messages.append({"role": "user", "content": history_user_text})
-                st.session_state.messages.append({"role": "assistant", "content": safe_text})
+                
+                # Save the clean text AND the dynamic metadata to memory!
+                st.session_state.messages.append({
+                    "role": "assistant", 
+                    "content": clean_text,
+                    "lat": dynamic_lat,
+                    "lon": dynamic_lon,
+                    "roi": dynamic_roi
+                })
                 
                 st.rerun()
 
